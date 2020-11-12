@@ -1481,7 +1481,7 @@ void FtpSession::readCommand (int const events_)
 		{
 			// only some commands are available during data transfer
 			if (::strcasecmp (command, "ABOR") != 0 && ::strcasecmp (command, "STAT") != 0 &&
-			    ::strcasecmp (command, "QUIT") != 0)
+			    ::strcasecmp (command, "QUIT") != 0 && ::strcasecmp (command, "PWD") != 0)
 			{
 				sendResponse ("503 Invalid command during transfer\r\n");
 				setState (State::COMMAND, true, true);
